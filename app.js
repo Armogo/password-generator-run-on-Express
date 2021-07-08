@@ -8,12 +8,16 @@ const port = 3000
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
+// set body-parser
+app.use(express.urlencoded({extended: true}))
+
 // routing
 app.get('/', (req, res) => {
   res.render('index', {})
 })
 
 app.post('/', (req, res) => {
+  console.log(req.body)
   res.render('index', {})
 })
 
