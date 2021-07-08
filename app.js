@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
   res.render('index', {})
 })
 
+app.post('/', (req, res) => {
+  res.render('index', {})
+})
+
 // listen Express running on Node
 app.listen(port, () => {
   console.log(`Express app is listening on http://localhost:${port}`)
