@@ -1,6 +1,7 @@
 // include necessary packages and define server related variables
 const express = require('express')
 const exphbs = require('express-handlebars')
+const generatePassword = require('./generate_password')
 const app = express()
 const port = 3000
 
@@ -13,12 +14,12 @@ app.use(express.urlencoded({extended: true}))
 
 // routing
 app.get('/', (req, res) => {
-  res.render('index', {})
+  res.render('index')
 })
 
 app.post('/', (req, res) => {
-  console.log(req.body)
-  res.render('index', {})
+  const password = generatePassword(req.body)
+  res.render('index', {password: password})
 })
 
 // listen Express running on Node
