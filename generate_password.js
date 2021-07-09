@@ -35,10 +35,13 @@ function generatePassword(options) {
   }
   
   // excluded characters appointed by user
-  if(options.excludeCharacters) {  
-   collection = collection.filter(
-     character => !options.excludeCharacters.includes(character)
-   )
+  collection = collection.filter(
+    character => !options.excludeCharacters.includes(character)
+  )
+
+  // return error notice if collection is empty
+  if (collection.length === 0) {
+    return 'There is no valid character in your selection.'
   }
 
   // generate password
